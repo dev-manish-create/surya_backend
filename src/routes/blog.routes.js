@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { createBlog, deleteBlog, getBlog, listBlogs, updateBlog } from '../controllers/blog.controller.js';
+import { protect } from '../middlewares/auth.js';
+const router = Router();
+router.post('/create', protect, createBlog);
+router.get('/get', listBlogs);
+router.get('/get/:slug', getBlog);
+router.put('/:id', protect, updateBlog);
+router.delete('/:id', protect, deleteBlog);
+export default router;
