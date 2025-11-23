@@ -19,7 +19,8 @@ app.use(compression());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream: logger.stream }));
-
+// TRUST THE PROXY
+app.set('trust proxy', 1);  // '1' means trust first proxy (Render's proxy)
 const limiter = rateLimit({ windowMs: 15*60*1000, max: 200 });
 app.use('/api/', limiter);
 
