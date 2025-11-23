@@ -14,7 +14,7 @@ const app = express();
 connectDB();
 
 app.use(helmet());
-app.use(cors({ origin: "https://www.surya-enterprises.com" }));
+app.use(cors({ origin: "https://www.surya-enterprisses.com" }));
 app.use(compression());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
